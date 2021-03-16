@@ -74,20 +74,5 @@ public class session2 {
     System.out.println("Please input any year: ");
   }
 
-  public void Ex4() {
-    Scanner sc = new Scanner(System.in);
-    System.out.println("Please input any year: ");
-//    int number = sc.nextInt();
-    int number = 2004;
-    System.out.println("Your number is " + number);
-    boolean b1 = number % 4 == 0;
-    boolean b2 = number % 100 == 0;
-    boolean b3 = number % 400 == 0;
-    if (b1 && b2 && b3) {
-      System.out.println("Year " + number + " is valid");
-    } else if (!b1 || !b3) {
-      System.out.println("Year " + number + " is valid");
-    }
-  }
 }
 
