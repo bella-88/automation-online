@@ -1,5 +1,7 @@
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -34,13 +36,28 @@ public class session3 {
 
   @Test
   public void checkFile() throws ParserConfigurationException, IOException, SAXException {
-    File file = new File("C:/Users/Admin/Downloads/bai-tap-4.html");
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document doc = builder.parse(file);
-    doc.getDocumentElement().normalize();
-    System.out.println("Root element: "+doc.getDocumentElement().getNodeName());
-    NodeList nodeList = doc.getElementsByTagName("");
-
+    try {
+      File file = new File("C:/Users/Admin/Downloads/bai-tap.xml");
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      Document doc = builder.parse(file);
+      doc.getDocumentElement().normalize();
+      System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+      NodeList nodeList = doc.getElementsByTagName("firstname");
+      for (int itr = 0; itr < nodeList.getLength(); itr++) {
+        Node node = nodeList.item(itr);
+        System.out.println("\nNode Name :" + node.getNodeName());
+        if (node.getNodeType() == Node.ELEMENT_NODE) {
+          Element eElement = (Element) node;
+          System.out.println("Student id: " + eElement.getElementsByTagName("id").item(0).getTextContent());
+          System.out.println("First Name: " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
+          System.out.println("Last Name: " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
+          System.out.println("Subject: " + eElement.getElementsByTagName("subject").item(0).getTextContent());
+          System.out.println("Marks: " + eElement.getElementsByTagName("marks").item(0).getTextContent());
+        }
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }
