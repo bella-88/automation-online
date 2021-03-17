@@ -8,14 +8,15 @@ import java.util.Scanner;
 public class session2 {
   private static Scanner scanner = new Scanner(System.in);
 
-
+@Test
   public void ex1() {
-    float n = 149;
-    float giai_thua = 1;
+    double f = 1;
+    BigDecimal giai_thua = new BigDecimal(Double.toHexString(f));
     System.out.println("In giai thua");
-    for (int i = 2; i < n; i++) {
-      giai_thua = giai_thua * i;
+    for (int i = 2; i < 200; i++) {
+      giai_thua = giai_thua.multiply(BigDecimal.valueOf(i));
     }
+  System.out.println("Giai thua cua 200 la: "+ giai_thua);
   }
 
 
@@ -30,11 +31,9 @@ public class session2 {
       }
       return;
     }
-    // tính delta
     float delta = b * b - 4 * a * c;
     float x1;
     float x2;
-    // tính nghiệm
     if (delta > 0) {
       x1 = (float) ((-b + Math.sqrt(delta)) / (2 * a));
       x2 = (float) ((-b - Math.sqrt(delta)) / (2 * a));
@@ -59,7 +58,7 @@ public class session2 {
     float c = scanner.nextFloat();
     giaiPTBac2(a, b, c);
   }
-  @Test
+
   public void ex3() {
     String text ="We guarantee we won't be beat on price. If you find a cheaper deal on another website after you book with us, we will refund the difference! We offer various payment methods to make a booking with us. Choose from Credit and Debit Cards and the leading Cryptocurrencies.";
     String[] listStr = text.split(" ");

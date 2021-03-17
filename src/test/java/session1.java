@@ -8,7 +8,6 @@ public class session1 {
     System.out.println("hello world");
   }
 
-  @Test
   public void ex2() {
     Months[] months = Months.values();
      for (int i = 0; i < months.length; i++) {
@@ -22,21 +21,26 @@ public class session1 {
     for (int i = 0; i < number.length; i++) {
       System.out.println("Gia tri thu " + i + " la: " + number[i]);
     }
-    System.out.println("============================================");
     System.out.println("========In day so su dung vong While=========");
     int i = 0;
     while (i < number.length) {
       System.out.println("Gia tri thu " + i + " la: " + number[i]);
       i++;
     }
-    System.out.println("============================================");
     System.out.println("========In day so su dung vong While - Do=========");
     int j = 0;
     do {
       System.out.println("Gia tri thu " + j + " la: " + number[j]);
       j++;
     } while (j < number.length);
-    System.out.println("============================================");
+    System.out.println("========In day so su dung vong For Each=========");
+    String[] list ={"8","32","564","1221","43"};
+    for (String str:list)
+          {
+            System.out.println("Gia tri là: "+str );
+
+    }
+
   }
 
   public void Ex4() {
