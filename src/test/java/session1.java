@@ -1,5 +1,3 @@
-import org.junit.Test;
-
 import java.util.Scanner;
 
 public class session1 {
@@ -8,8 +6,10 @@ public class session1 {
     System.out.println("hello world");
   }
 
+
+
   public void ex2() {
-    Months[] months = Months.values();
+    Constant[] months = Constant.values();
      for (int i = 0; i < months.length; i++) {
       System.out.println("Month: " + months[i]);
     }

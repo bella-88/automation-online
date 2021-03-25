@@ -1,6 +1,6 @@
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -10,9 +10,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-
-import org.w3c.dom.Document;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -21,13 +18,11 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.time.temporal.WeekFields;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
 
-public class session3 {
+public class session3 extends Common{
 
   public static String readFile(String fileName) throws IOException {
     String content = new String((Files.readAllBytes(Paths.get(fileName))));
@@ -46,16 +41,18 @@ public class session3 {
 
   @Test
   public void readFile() {
-      try {
-      File file = new File( "C:/Users/Admin/Downloads/bai-tap-4.html" );
-      FileInputStream fis = new FileInputStream( file.getAbsolutePath() );
-      String data = IOUtils.toString(fis, StandardCharsets.UTF_8 );
+    try {
+      File file = new File("C:/Users/Admin/Downloads/bai-tap-4.html");
+      FileInputStream fis = new FileInputStream(file.getAbsolutePath());
+      String data = IOUtils.toString(fis, StandardCharsets.UTF_8);
       System.out.println("======Noi Dung File HTML==========");
       System.out.println(data);
-         } catch (Exception e) {
+
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }
+
   public void checkFile() throws ParserConfigurationException, IOException, SAXException {
     try {
       File file = new File("C:/Users/Admin/Downloads/bai-tap.xml");
